@@ -1,0 +1,10 @@
+.section {
+  font-size: 6em;
+  text-align: center;
+  background-size: cover;
+}
+
+#introSection {
+  background-image: url("/images/background.jpg");
+  padding: 6% 0 0 0;
+}

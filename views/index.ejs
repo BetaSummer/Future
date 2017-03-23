@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.css">
+  <link rel="stylesheet" href="./stylesheets/style.css">
+
+</head>
+<body>
+<div id="fullpage">
+  <div class="section" data-anchor="learnCode">section1</div>
+  <div class="section" id="introSection" data-anchor="betaHouse">
+    <div class="brand">
+      β-house
+      <div>
+        加入我们
+      </div>
+    </div>
+  </div>
+  <div class="section active" data-anchor="joinUs">section3</div>
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $('#fullpage').fullpage({
+      anchors:['learnCode','betaHouse','joinUs'],
+      sectionsColor: ['#f2f2f2', '', '#7BAABE']
+    });
+  });
+</script>
+</body>
+</html>
