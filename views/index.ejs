@@ -1,38 +1,112 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/css/materialize.min.css">
   <link rel="stylesheet" href="./stylesheets/style.css">
 
 </head>
+
 <body>
-<div id="fullpage">
-  <div class="section" data-anchor="learnCode">section1</div>
-  <div class="section" id="introSection" data-anchor="betaHouse">
-    <div class="brand">
-      β-house
-      <div>
-        加入我们
+  <div id="fullpage">
+    <div class="section" data-anchor="learnCode">
+    </div>
+    <div class="section introSection" data-anchor="betaHouse">
+      <div class="brand">
+        β-house
+        <div>
+          加入我们
+        </div>
       </div>
     </div>
+    <div class="section fp-auto-height-responsive formSection" data-anchor="joinUs">
+      <div class="container">
+        <div class="formComponent">
+          <form class="col s12" method="post" action='/post'>
+            <div class="row">
+              <div class="input-field col s6">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="name" name="name" type="text" class="validate" required>
+                <label for="name">姓名</label>
+              </div>
+              <div class="input-field col s6">
+                <i class="material-icons prefix">format_list_numbered</i>
+                <input id="stuNum" type="text" name="stuNum" class="validate" required>
+                <label for="stuNum">学号</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">mail_outline</i>
+                <input id="email" type="email" name="email" class="validate" required>
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="introdcution" class="materialize-textarea" name="introdcution" maxlength="200" required></textarea>
+                <label for="introdcution">你的简介(200字以内)</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="experience" class="materialize-textarea" name="experience" maxlength="200" required></textarea>
+                <label for="experience">迄今为止，你做过哪些有趣的事？(200字以内)</label>
+              </div>
+            </div>
+            <div class="file-field input-field">
+              <div class="btn">
+                <span>上传</span>
+                <input type="file">
+              </div>
+              <div class="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="如有设计或网站作品请上传，仅支持 10M 之內的 zip 压缩文件，文件名：姓名+学号">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col s10 offset-s1 center-align">
+                <button class="btn waves-effect waves-light" type="submit">提交
+                <i class="material-icons right">send</i>
+              </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="section fp-auto-height">
+      <footer>
+        <div class="footer-copyright">
+          <div class="container">
+            <span>
+               <a href="http://www.betahouse.us">© β-house 工作室 </a>2017
+             </span>
+          </div>
+        </div>
+      </footer>
+    </div>
   </div>
-  <div class="section active" data-anchor="joinUs">section3</div>
-</div>
 
-<script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
-<script>
-  $(document).ready(function () {
-    $('#fullpage').fullpage({
-      anchors:['learnCode','betaHouse','joinUs'],
-      sectionsColor: ['#f2f2f2', '', '#7BAABE']
+
+  <script src="https://cdn.bootcss.com/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.1/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('#fullpage').fullpage({
+        anchors:['learnCode','betaHouse','joinUs','footer'],
+        sectionsColor: ['#f2f2f2', '', '#7BAABE','#7BAABE'],
+      });
     });
-  });
-</script>
+  </script>
 </body>
+
 </html>

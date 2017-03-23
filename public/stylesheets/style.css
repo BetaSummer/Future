@@ -1,10 +1,31 @@
+footer {
+  font-size: initial;
+}
+
 .section {
   font-size: 6em;
   text-align: center;
   background-size: cover;
 }
 
-#introSection {
+.introSection {
   background-image: url("/images/background.jpg");
   padding: 6% 0 0 0;
+}
+
+.formComponent {
+  margin: 0 auto;
+  font-size: initial;
+  text-align: initial;
+  background-color: #ffffff;
+  border-radius: 2px;
+  padding: 19px;
+  box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border: 0;
+}
+
+footer a {
+  border-bottom: dotted 1px #666;
+  color: inherit;
+  text-decoration: none;
 }
