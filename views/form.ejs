@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="formComponent">
+    <form class="col s12" method="post" action='/post'>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="name" name="name" type="text" class="validate" required>
+          <label for="name">姓名</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">format_list_numbered</i>
+          <input id="stuNum" type="text" name="stuNum" class="validate" required>
+          <label for="stuNum">学号</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">mail_outline</i>
+          <input id="email" type="email" name="email" class="validate" required>
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea id="introduction" class="materialize-textarea" name="introduction" maxlength="200" required></textarea>
+          <label for="introduction">你的简介(200字以内)</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <i class="material-icons prefix">mode_edit</i>
+          <textarea id="experience" class="materialize-textarea" name="experience" maxlength="200" required></textarea>
+          <label for="experience">迄今为止，你做过哪些有趣的事？(200字以内)</label>
+        </div>
+      </div>
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>上传</span>
+          <input type="file">
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" placeholder="如有设计或网站作品请上传，仅支持 10M 之內的 zip 压缩文件，文件名：姓名+学号">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s10 offset-s1 center-align">
+          <button class="btn waves-effect waves-light" type="submit">
+              提交
+                <i class="material-icons right">send</i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
