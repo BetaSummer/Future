@@ -1,26 +1,20 @@
 {
-  "name": "choo",
+  "name": "future",
   "version": "1.0.0",
   "description": "Betahouse 2017 recruiting website",
   "main": "index.js",
   "scripts": {
-    "test": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start":"NODE_ENV=production pm2 start index.js"
   },
-  "author": "",
+  "author": "betahouse",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.17.1",
-    "config-lite": "^1.5.0",
-    "connect-flash": "^0.1.1",
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "express-winston": "^2.3.0",
-    "marked": "^0.3.6",
-    "moment": "^2.18.1",
     "multer": "^1.3.0",
     "nodemailer": "^3.1.8",
-    "objectid-to-timestamp": "^1.3.0",
-    "sha1": "^1.1.1",
     "winston": "^2.3.1"
   }
 }
