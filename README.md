@@ -1,8 +1,10 @@
-## Future
+# Future
+
+### β-house 2017 recruiting website.
 
 Oh, father tell me, do we get what we deserve.
 
-### Usage
+## Usage
 
 1. `git clone https://github.com/BetaSummer/Future` 
 2. `cd Future`
