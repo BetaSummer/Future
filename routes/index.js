@@ -3,6 +3,20 @@ var router = express.Router();
 var nodemailer = require('nodemailer');
 
 
+var multer = require('multer');
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, './public/files')
+  },
+  filename: function (req, file, cb) {
+    var nameArr = file.originalname.split('.');
+    cb(null, `${nameArr[0]}${Date.now()}.${nameArr[1]}`);
+  }
+});
+var upload = multer({
+  storage: storage
+});
+
 var transporter = nodemailer.createTransport({
   host: "smtp.qq.com", // 主机
   secureConnection: true, // 使用 SSL
@@ -17,7 +31,7 @@ router.get('/', function (req, res) {
   res.render('index');
 });
 
-router.post('/post', function (req, res) {
+router.post('/post', upload.fields([{ name: 'file', maxCount: 1 }]) ,function (req, res) {
   var body = req.body;
   var html = `<p>${body.name}  ${body.stuNum}</p><p>email: ${body.email}</p><p>个人简介： ${body.introduction}</p><p>有趣的事： ${body.experience}</p>`; 
   var mailOptions = {
@@ -29,9 +43,10 @@ router.post('/post', function (req, res) {
   transporter.sendMail(mailOptions, function (error, info) {
     if (error) {
       console.log(error);
+      res.status(500).send({message:"提交失败，请重试😔"});
     } else {
       console.log('Message sent: ' + info.response);
-      res.render('success');
+      res.status(200).send({message:"提交成功😜"});
     }
   });
 });

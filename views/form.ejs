@@ -1,6 +1,6 @@
 <div class="container">
   <div class="formComponent">
-    <form class="col s12" method="post" action='/post'>
+    <form class="col s12" id="entryForm" enctype="multipart/form-data" method="post" action='/post'>
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
@@ -37,7 +37,7 @@
       <div class="file-field input-field">
         <div class="btn">
           <span>上传</span>
-          <input type="file">
+          <input type="file" name="file">
         </div>
         <div class="file-path-wrapper">
           <input class="file-path validate" type="text" placeholder="如有设计或网站作品请上传，仅支持 10M 之內的 zip 压缩文件，文件名：姓名+学号">
@@ -45,12 +45,15 @@
       </div>
       <div class="row">
         <div class="col s10 offset-s1 center-align">
-          <button class="btn waves-effect waves-light" type="submit">
+          <button class="btn waves-effect waves-light" type="submit" id="submitBtn">
               提交
                 <i class="material-icons right">send</i>
           </button>
         </div>
       </div>
-    </form>
-  </div>
+        <div class="progress">
+      <div class="indeterminate"></div>
+      </div>
+  </form>
+</div>
 </div>

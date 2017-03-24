@@ -3,7 +3,6 @@ var express = require('express');
 var app = express();
 var indexRouter = require('./routes/index');
 var pkg = require('./package.json');
-var bodyParser = require('body-parser');
 var winston = require('winston');
 var expressWinston = require('express-winston');
 
@@ -26,16 +25,7 @@ app.use(expressWinston.logger({
   ]
 }));
 
-
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-
 app.use('/', indexRouter);
-
-app.use(require('express-formidable')({
-  uploadDir: path.join(__dirname, 'public/files'),// 上传文件目录
-  keepExtensions: true// 保留后缀
-}));
 
 app.use(function (err,req,res,next) {
   console.error(err.stack);
