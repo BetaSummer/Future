@@ -4,7 +4,7 @@ $(document).ready(function () {
 
   $('.progress').hide();
   $('#fullpage').fullpage({
-    sectionsColor: ['#f2f2f2', '', '#7BAABE', '#7BAABE'],
+    sectionsColor: [ '', '#7BAABE', '#7BAABE'],
     navigation: true,
     navigationPosition: 'right',
     verticalCentered:false,
