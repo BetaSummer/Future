@@ -98,7 +98,7 @@ function init() {
 
 // get time
 function getTime() {
-  var target = [3, 26, 18, 0];
+  var target = [3, 28, 18, 0];
   var now = new Date();
 
   var day = target[1] - now.toString().split(' ')[2];
