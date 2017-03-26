@@ -52,6 +52,8 @@ footer a {
 }
 .col.box{
   padding: 0 40px;
+  z-index: 1000;
+  position: relative;
 }
 
 .box p{
@@ -212,7 +214,7 @@ footer a {
   }
   .cards.card2>h1,
   .cards.card2>p{
-    margin: .5rem 0 1rem;
+    margin: .5rem 0;
   }
 }
 
@@ -239,14 +241,24 @@ footer a {
   .container{
     height: 100%;
   }
+  .container>.brand{
+    margin-top: -5px;
+  }
+  .row.center>.col.left-box{
+    margin: 5px auto 0;
+  }
   .container .row{
     height: 100%;
   }
+  .cards>h1{
+    font-size: 18px;
+    margin: .3rem 0;
+  }
   .cards.card2{
-    padding: 8px 0;
+    padding: 4px 0;
   }
   .row.center>.col.left-box {
-    height: 75%;
+    height: 80%;
     width: 80%;
     margin: 20px auto 10px;
     float: none;
@@ -255,11 +267,11 @@ footer a {
     font-size: 14px;
     width: auto;
     margin-left: 3%;
-    margin: 5px;
+    margin: 3px;
     height: 40px;
-    padding: 0 5px;
+    padding: 0 2px;
   }
-  .card2 img {
+  .cards.card2 img {
     margin-top: 10px;
   }
   .center > .col.left-box {
@@ -279,7 +291,7 @@ footer a {
     padding: 5px 0;
   }
   .row.center>.col.left-box {
-    margin: 10px auto 10px;
+    margin: 0 auto;
   }
   .row.center>.box {
     font-size: 12px;
@@ -332,7 +344,7 @@ footer a {
   -webkit-animation-name: moveCard;
   animation-name: moveCard;
   opacity: 1;
-  z-index: -1;
+  z-index: -100;
 }
 
 @-webkit-keyframes moveCard {
