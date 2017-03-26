@@ -1,6 +1,36 @@
 $(document).ready(function () {
   var times2 = new Array();
+  window.$oldcard = $('.card1');
+  window.$oldbox = $('.box').eq(0);
+  window.count = 0;
+  window.canhover = false;
 
+  var browser = {
+    versions:function(){
+     var u = navigator.userAgent, app = navigator.appVersion;
+     return {//移动终端浏览器版本信息
+          trident: u.indexOf('Trident') > -1, //IE内核
+          presto: u.indexOf('Presto') > -1, //opera内核
+          webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+          gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+          mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+          ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+          android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+          iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
+          iPad: u.indexOf('iPad') > -1, //是否iPad
+          webApp: u.indexOf('Safari') == -1 //是否web应该程序，没有头部与底部
+      };
+   }(),
+   language:(navigator.browserLanguage || navigator.language).toLowerCase()
+  }
+  var IS_PHONE=false;
+
+  if(browser.versions.mobile || browser.versions.ios || browser.versions.android ||
+    browser.versions.iPhone || browser.versions.iPad){
+    IS_PHONE=true;
+  }else{
+    IS_PHONE=false;
+  }
 
   $('.progress').hide();
   $('#fullpage').fullpage({
@@ -11,6 +41,9 @@ $(document).ready(function () {
     afterLoad: function(anchorLink, index) {
       switch (index) {
         case 1:
+          $oldcard = $('.card1');
+          $oldbox = $('.box:eq(0)');
+          count=0;
           $('.brand').addClass('animated about-title');
           times2.push(setTimeout(function(){
             $('.card1').addClass('animated bigger');
@@ -41,6 +74,86 @@ $(document).ready(function () {
       }
     }
   });
+
+
+  if(IS_PHONE===true){
+    // 移动端做的事
+    $('.right-box').each(function(index, el) {
+      var $this = $(this);
+
+      var $cards = $('.cards');
+      $this.click(function(event) {
+        if($cards.eq(index).children('h1').text()!=$oldcard.children('h1').text()){
+          if(canhover){
+            canhover = false;
+            if(count === 0){
+              $('.box:eq(0)').removeClass('animated flipInYFirst');
+              $('.box:eq(0)').addClass('flipInY');
+            }
+            count++;
+            $oldbox.removeClass('animated right-box-hover');
+            $this.addClass('animated right-box-hover');
+            $cards.eq(index).css('z-index', 1);
+            $oldcard.css('z-index', -100);
+            $oldbox.removeClass('right-box-hover');
+            $('.right-box').prop('disabled', true);
+            $cards.eq(index).addClass('animated show-card');
+            $oldcard.removeClass('animated show-card');
+            $oldcard.removeClass('animated bigger');
+            $oldcard.addClass('animated move-card');
+            setTimeout(function(){
+              $oldcard.removeClass('animated move-card');
+              canhover = true;
+            },600);
+            $oldcard = $cards.eq(index);
+            $oldbox = $this;
+          }
+
+        }
+
+      });
+    });
+  }else {
+    // 网页端做的事
+    $('.right-box').each(function(index, el) {
+      $(this).hover(function() {
+        var $this = $(this);
+        var $cards = $('.cards');
+        if($(this).children('p').text() !== $oldbox.children('p').text()){
+          if(canhover){
+            canhover = false;
+            if(count === 0){
+              $('.box:eq(0)').removeClass('animated flipInYFirst');
+              $('.box:eq(0)').addClass('flipInY');
+            }
+            $oldbox.removeClass('animated right-box-hover');
+            $this.addClass('animated right-box-hover');
+            $cards.eq(index).css('z-index', '1');
+            $oldcard.css('z-index', '-100');
+            $oldbox.removeClass('right-box-hover');
+            $('.right-box').prop('disabled', true);
+            $cards.eq(index).addClass('animated show-card');
+            $oldcard.removeClass('animated show-card');
+            $oldcard.removeClass('animated bigger');
+            $oldcard.addClass('animated move-card');
+            setTimeout(function(){
+              $oldcard.removeClass('animated move-card');
+              canhover = true;
+            },600);
+            $oldcard = $cards.eq(index);
+            $oldbox = $this;
+            count++;
+          }
+        }else {
+        }
+
+      }, function() {
+
+      });
+    });
+  }
+
+
 });
 
 var frm = $('#entryForm');
@@ -69,54 +182,13 @@ frm.submit(function (ev) {
   }
 });
 
-var $oldcard = $('.card1');
 
-var $oldbox = $('.box').eq(0);
-var count = 0;
-var canhover = false;
+
+/*
 $('.right-box').each(function(index, el) {
-  $(this).hover(function() {
-    var $this = $(this);
-    var $cards = $('.cards');
-    if($(this).children('p').text() !== $oldbox.children('p').text()){
-      if(canhover){
-        canhover = false;
-        if(count === 0){
-          $('.box:eq(0)').removeClass('animated flipInYFirst');
-          $('.box:eq(0)').addClass('animated flipInY');
-        }
-        $oldbox.removeClass('animated right-box-hover');
-        $this.addClass('animated right-box-hover');
-        $cards.eq(index).css('z-index', '100');
-        $oldcard.css('z-index', '-1');
-        $oldbox.removeClass('right-box-hover');
-        $('.right-box').prop('disabled', true);
-        $cards.eq(index).addClass('animated show-card');
-        $oldcard.removeClass('animated show-card');
-        $oldcard.removeClass('animated bigger');
-        $oldcard.addClass('animated move-card');
-        setTimeout(function(){
-          $oldcard.removeClass('animated move-card');
-          canhover = true;
-        },600);
-        $oldcard = $cards.eq(index);
-        $oldbox = $this;
-        count++;
-      }
-    }else {
-    }
-
-  }, function() {
-
-  });
-});
-
-
-
-/*$('.right-box').each(function(index, el) {
   var $this = $(this);
   var $cards = $('.cards');
-  $this.hover(function(event) {
+  $this.click(function(event) {
     if($cards.eq(index).children('h1').text()!=$oldcard.children('h1').text()){
       if(canhover){
         canhover = false;
@@ -152,7 +224,9 @@ function secondLeave(){
   $('.card1').removeClass('animated bigger');
   $('.right-box').removeClass('animated flipInY flipInYFirst right-box-hover');
   $('.cards').removeClass('animated bigger show-card move-card');
+
   $oldcard = $('.card1');
+  console.log($oldcard);
   $oldbox = $('.box').eq(0)
   count=0;
   canhover = false;
