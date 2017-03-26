@@ -17,7 +17,6 @@ footer a {
   background-size: cover;
 }
 
-
 /**
  * 关于betahouse
  * @type {[type]}
@@ -31,23 +30,21 @@ footer a {
 .brand {
   width: 100%;
   padding: 10px 0;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0,0,0,0.3);
   color: #ffffff;
   opacity: 0;
 }
-
-.brand>span {
+.brand>span{
   font-size: 20px;
 }
-
-.center {
-  -webkit-perspective: 800;
+.center{
+  -webkit-perspective:800;
   perspective: 800;
   -webkit-perspective-origin: 50% 50%;
   perspective-origin: 60% 50%;
 }
 
-.box {
+.box{
   transition: 1s;
   -webkit-transition: 1s;
   transform-style: preserve-3d;
@@ -55,28 +52,27 @@ footer a {
   opacity: 0;
   display: none;
 }
-
-.col.box {
+.col.box{
   padding: 0 40px;
 }
 
-.box p {
+.box p{
   text-align: left;
-  white-space: nowrap;
+  white-space:nowrap;
   overflow: hidden;
+
   line-height: 100px;
   margin: 0;
 }
 
-.center>.col.left-box {
+.center > .col.left-box{
   transform-style: preserve-3d;
   position: relative;
   margin: 40px 0 0 0;
   height: 650px;
   padding: 0;
 }
-
-.cards {
+.cards{
   width: 100%;
   opacity: 0;
   position: absolute;
@@ -87,32 +83,27 @@ footer a {
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   background-color: white;
 }
-
-.cards img {
+.cards img{
   max-width: 90%;
   max-height: 90%;
   margin: 0 auto;
 }
-
-.cards>h1 {
+.cards>h1{
   font-size: 30px;
-  font-family: STKaiti, 华文楷体;
+  font-family: STKaiti,华文楷体;
   margin: 1rem 0;
 }
 
-.card1 img {
+.card1 img{
   max-width: 85%;
 }
-
-.cards.card2 {
+.cards.card2{
   padding: 0 20px;
 }
-
-.card2 img {
+.card2 img{
   margin-top: 40px;
+
 }
-
-
 /*.left-box>.card4,
 .left-box>.card2,
 .left-box>.card3,
@@ -121,22 +112,19 @@ footer a {
   opacity: 0;
 }*/
 
-.card4>img {
+.card4>img{
   width: 85%;
 }
 
-.center>.right-box-hover {
+.center > .right-box-hover{
   box-shadow: 10px 10px 17px 0 rgba(0, 0, 0, 0.2), 10px 15px 20px 0 rgba(0, 0, 0, 0.19);
   opacity: 1;
 }
-
-.center>.right-box {
+.center > .right-box{
   background-color: white;
   margin: 40px 0 0 40px;
   height: 100px;
 }
-
-
 /**
  * 提交报名表单
  * @type {[type]}
@@ -158,47 +146,49 @@ footer a {
  * 媒体检测
  * @type {[type]}
  */
-
-@media screen and (min-width: 1500px) {
-  .cards.card2 {
-    padding: 0 5%;
-  }
-}
-
-@media screen and (max-width: 1300px) {
-  .center>.box:first-child {
+ @media screen and (min-width: 1500px){
+   .cards.card2{
+     padding: 0 5%;
+   }
+ }
+@media screen and (max-width: 1300px){
+  .center>.box:first-child{
     margin-top: 40px;
   }
-  .center>.box {
+
+  .center>.box{
     height: 80px;
   }
-  .center>.box+.box {
+
+  .center>.box+.box{
     margin-top: 30px;
   }
-  .center>.box>p {
+  .center>.box>p{
     line-height: 80px;
   }
 }
 
 @media screen and (max-width: 1100px) {
-  .row.center>.box {
+  .row.center>.box{
     font-size: 16px;
     width: 30%;
     margin-left: 10%;
   }
-  .row.center>.left-box {
+  .row.center>.left-box{
+
     width: 60%;
   }
-  .cards>h1 {
+  .cards>h1{
     font-size: 26px;
   }
   .col.box {
     padding: 0 20px;
   }
-  .center>.box {
+
+  .center>.box{
     height: 60px;
   }
-  .center>.box>p {
+  .center>.box>p{
     line-height: 60px;
   }
 }
@@ -209,25 +199,27 @@ footer a {
     width: 37%;
     margin-left: 3%;
   }
+
   .col.box {
     padding: 0 15px;
   }
-}
 
+}
 @media screen and (max-width: 800px) {
   .cards>h1 {
     font-size: 20px;
   }
+
 }
 
 @media screen and (max-width: 600px) {
-  .container {
+  .container{
     height: 100%;
   }
-  .container .row {
+  .container .row{
     height: 100%;
   }
-  .cards.card2 {
+  .cards.card2{
     padding: 8px 0;
   }
   .row.center>.col.left-box {
@@ -247,13 +239,13 @@ footer a {
   .card2 img {
     margin-top: 10px;
   }
-  .center>.col.left-box {
+  .center > .col.left-box {
     height: 400px;
   }
   .row.center>.box>p {
     line-height: 40px;
   }
-  .center>.right-box-hover {
+  .center > .right-box-hover{
     box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.2), 5px 5px 10px 0 rgba(0, 0, 0, 0.19);
     opacity: 1;
   }
@@ -270,23 +262,22 @@ footer a {
     font-size: 12px;
     height: 30px;
   }
-  .row.center>.box>p {
+  .row.center>.box>p{
     line-height: 30px;
   }
 }
-
 
 /**
  * keyframe动画
  * @type {[type]}
  */
 
-.animated {
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
+ .animated {
+   -webkit-animation-duration: 1s;
+   animation-duration: 1s;
+   -webkit-animation-fill-mode: both;
+   animation-fill-mode: both;
+ }
 
 .about-title {
   -webkit-animation-name: aboutTitle;
@@ -298,6 +289,7 @@ footer a {
   from {
     transform: translateY(-100px);
   }
+
   to {
     transform: translateY(0px);
   }
@@ -307,6 +299,7 @@ footer a {
   from {
     transform: translateY(-100px);
   }
+
   to {
     transform: translateY(0px);
   }
@@ -324,6 +317,7 @@ footer a {
     transform: translateX(0);
     opacity: 1;
   }
+
   to {
     transform: translateX(-800px);
     opacity: 0;
@@ -352,6 +346,7 @@ footer a {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -361,12 +356,13 @@ footer a {
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
 }
 
-.bigger {
+.bigger{
   -webkit-animation-name: bigger;
   animation-name: bigger;
   background-color: rgba(255, 255, 255, 0.8);
@@ -404,21 +400,25 @@ footer a {
     animation-timing-function: ease-in;
     opacity: 0;
   }
+
   40% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
   }
+
   60% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
     transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
     opacity: .6;
   }
+
   80% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
   }
+
   to {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);
@@ -433,21 +433,25 @@ footer a {
     animation-timing-function: ease-in;
     opacity: 0;
   }
+
   40% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
   }
+
   60% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
     transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
     opacity: .6;
   }
+
   80% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
   }
+
   to {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);
@@ -471,20 +475,24 @@ footer a {
     animation-timing-function: ease-in;
     opacity: 0;
   }
+
   40% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
   }
+
   60% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
     transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
   }
+
   80% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
   }
+
   to {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);
@@ -501,20 +509,24 @@ footer a {
     animation-timing-function: ease-in;
     opacity: 0;
   }
+
   40% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
     -webkit-animation-timing-function: ease-in;
     animation-timing-function: ease-in;
   }
+
   60% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
     transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
   }
+
   80% {
     -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
     transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
   }
+
   to {
     -webkit-transform: perspective(400px);
     transform: perspective(400px);

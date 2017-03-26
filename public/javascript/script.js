@@ -14,6 +14,7 @@ $(document).ready(function () {
           $('.brand').addClass('animated about-title');
           times2.push(setTimeout(function(){
             $('.card1').addClass('animated bigger');
+            $('.card1').css('z-index', '100');
             times2.push(setTimeout(function(){
               $('.right-box').each(function(index, el) {
                 if(index===0){
