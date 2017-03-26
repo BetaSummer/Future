@@ -46,7 +46,7 @@ router.post('/post', upload.fields([{ name: 'file', maxCount: 1 }]) ,function (r
       res.status(500).send({message:"提交失败，请重试😔"});
     } else {
       console.log('Message sent: ' + info.response);
-      res.status(200).send({message:"提交成功😜"});
+      res.status(200).send({message:"提交成功，我们会尽快回复，届时请留意邮件😜"});
     }
   });
 });
