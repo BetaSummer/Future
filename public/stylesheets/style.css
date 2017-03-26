@@ -1,3 +1,7 @@
+body {
+  font-family:'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -24,19 +28,13 @@ footer a {
 
 .about {
   transition: opacity 1s ease;
-  background-image: linear-gradient(45deg, #4fa49a, #4361c2);
+  background: url('../images/logo.png') no-repeat center,linear-gradient(45deg, #4fa49a, #4361c2);
 }
 
 .brand {
-  width: 100%;
-  padding: 10px 0;
-  background: rgba(0,0,0,0.3);
-  color: #ffffff;
-  opacity: 0;
+  height: 2rem;
 }
-.brand>span{
-  font-size: 20px;
-}
+
 .center{
   -webkit-perspective:800;
   perspective: 800;
@@ -90,7 +88,6 @@ footer a {
 }
 .cards>h1{
   font-size: 30px;
-  font-family: STKaiti,华文楷体;
   margin: 1rem 0;
 }
 
@@ -177,6 +174,7 @@ footer a {
   }
   .center>.box>p{
     line-height: 70px;
+    cursor: default;
   }
 }
 

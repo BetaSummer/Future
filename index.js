@@ -30,13 +30,25 @@ app.use(expressWinston.logger({
 
 app.use('/', indexRouter);
 
+app.use(expressWinston.errorLogger({
+  transports: [
+    new winston.transports.Console({
+      json: true,
+      colorize: true
+    }),
+    new winston.transports.File({
+      filename: 'logs/error.log'
+    })
+  ]
+}));
+
 app.use(function (err,req,res,next) {
   console.error(err.stack);
-  res.status(500).send('Something wrong!');
+  res.status(500).send('Something went wrong!');
 });
 
 app.use(function(req, res, next) {
-  res.status(404).send('Sorry cant find that!');
+  res.status(404).render('404');
 });
 
 app.listen(port, function () {
