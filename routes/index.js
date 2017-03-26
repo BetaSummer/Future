@@ -28,7 +28,12 @@ var transporter = nodemailer.createTransport({
 });
 
 router.get('/', function (req, res) {
-  res.render('index');
+  var dateObj = new Date();
+  if(dateObj.getDate() === 28 && dateObj.getHours() === 18) {
+    res.render('index');
+  } else {
+    res.render('deadline');
+  }
 });
 
 router.post('/post', upload.fields([{ name: 'file', maxCount: 1 }]) ,function (req, res) {
