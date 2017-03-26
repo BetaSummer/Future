@@ -3,7 +3,6 @@
 /* eslint no-console: 0 */
 /* eslint wrap-iife: 0 */
 
-
 let container;
 let camera, scene, renderer;
 let group, textMesh, textGeo, material;
@@ -43,11 +42,11 @@ init();
 animate();
 
 function init() {
-  container = document.createElement( 'div' );
-  document.body.appendChild( container );
+  container = document.createElement('div');
+  document.body.appendChild(container);
 
   // title 信息处理
-  const info = document.createElement( 'div' );
+  const info = document.createElement('div');
   info.style.position = 'absolute';
   info.style.top = '10px';
   info.style.width = '100%';
@@ -56,27 +55,24 @@ function init() {
   info.style.fontSize = '20px';
   info.style.textAlign = 'center';
   info.innerHTML = 'Welcome ! β-house recruitment coming soon.';
-  container.appendChild( info );
+  container.appendChild(info);
 
   // camera
-  camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 1, 800 );
-  camera.position.set( 0, 250, 500 );
+  camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 1, 800);
+  camera.position.set(0, 250, 500);
 
   // scene
   scene = new THREE.Scene();
 
   // get text
   text = getTime();
-  setInterval(timeChange, 1000)
+  setInterval(timeChange, 1000);
 
-  material = new THREE.MultiMaterial( [
-    new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff, overdraw: 0.5 } ),
-    new THREE.MeshBasicMaterial( { color: Math.random() * 0xffffff - 0x100000, overdraw: 0.5 } )
-  ] );
+  material = new THREE.MultiMaterial([new THREE.MeshBasicMaterial({ color: Math.random() * 0xffffff, overdraw: 0.5 }), new THREE.MeshBasicMaterial({ color: Math.random() * 0xffffff - 0x100000, overdraw: 0.5 })]);
 
   group = new THREE.Group();
 
-  scene.add( group );
+  scene.add(group);
 
   fontName = 'helvetiker';
   fontWeight = 'bold';
@@ -84,19 +80,19 @@ function init() {
   loadFont();
 
   renderer = new THREE.WebGLRenderer();
-  renderer.setClearColor( 0xf0f0f0 );
+  renderer.setClearColor(0xf0f0f0);
   // renderer.setPixelRatio( window.devicePixelRatio );
-  renderer.setSize( window.innerWidth, window.innerHeight );
-  container.appendChild( renderer.domElement );
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  container.appendChild(renderer.domElement);
 
-  window.addEventListener( 'mousemove', onDocumentMouseMove, false );
-  window.addEventListener( 'resize', onWindowResize, false );
+  window.addEventListener('mousemove', onDocumentMouseMove, false);
+  window.addEventListener('resize', onWindowResize, false);
 }
 
 // get time
 function getTime() {
   const target = [3, 28, 18, 0];
-  const now =  new Date();
+  const now = new Date();
 
   const day = target[1] - now.toString().split(' ')[2];
   let hour = day * 24 + (target[2] - now.getHours());
@@ -134,24 +130,23 @@ function onWindowResize() {
   windowHalfY = window.innerHeight / 2;
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
-  renderer.setSize( window.innerWidth, window.innerHeight );
+  renderer.setSize(window.innerWidth, window.innerHeight);
 }
 function onDocumentMouseMove(event) {
   mouseX = (event.clientX - windowHalfX) / 5;
   mouseY = (event.clientY - windowHalfY) / 5;
 }
 
-
 // font handle function
 function loadFont() {
   const loader = new THREE.FontLoader();
-  loader.load( 'fonts/' + fontName + '_' + fontWeight + '.typeface.json', function ( response ) {
+  loader.load('fonts/' + fontName + '_' + fontWeight + '.typeface.json', function (response) {
     font = response;
     refreshText();
-  } );
+  });
 }
 function createText() {
-  textGeo = new THREE.TextGeometry( text, {
+  textGeo = new THREE.TextGeometry(text, {
     font: font,
     size: size,
     height: height,
@@ -164,39 +159,39 @@ function createText() {
   });
   textGeo.computeBoundingBox();
   textGeo.computeVertexNormals();
-  if ( ! bevelEnabled ) {
-    const triangleAreaHeuristics = 0.1 * ( height * size );
-    for ( let i = 0; i < textGeo.faces.length; i ++ ) {
-      const face = textGeo.faces[ i ];
-      if ( face.materialIndex === 1 ) {
-        for ( let j = 0; j < face.vertexNormals.length; j ++ ) {
-          face.vertexNormals[ j ].z = 0;
-          face.vertexNormals[ j ].normalize();
+  if (!bevelEnabled) {
+    const triangleAreaHeuristics = 0.1 * (height * size);
+    for (let i = 0; i < textGeo.faces.length; i++) {
+      const face = textGeo.faces[i];
+      if (face.materialIndex === 1) {
+        for (let j = 0; j < face.vertexNormals.length; j++) {
+          face.vertexNormals[j].z = 0;
+          face.vertexNormals[j].normalize();
         }
-        const va = textGeo.vertices[ face.a ];
-        const vb = textGeo.vertices[ face.b ];
-        const vc = textGeo.vertices[ face.c ];
-        const s = THREE.GeometryUtils.triangleArea( va, vb, vc );
-        if ( s > triangleAreaHeuristics ) {
-          for ( let j = 0; j < face.vertexNormals.length; j ++ ) {
-            face.vertexNormals[ j ].copy( face.normal );
+        const va = textGeo.vertices[face.a];
+        const vb = textGeo.vertices[face.b];
+        const vc = textGeo.vertices[face.c];
+        const s = THREE.GeometryUtils.triangleArea(va, vb, vc);
+        if (s > triangleAreaHeuristics) {
+          for (let j = 0; j < face.vertexNormals.length; j++) {
+            face.vertexNormals[j].copy(face.normal);
           }
         }
       }
     }
   }
-  const centerOffset = -0.5 * ( textGeo.boundingBox.max.x - textGeo.boundingBox.min.x );
-  textMesh = new THREE.Mesh( textGeo, material );
+  const centerOffset = -0.5 * (textGeo.boundingBox.max.x - textGeo.boundingBox.min.x);
+  textMesh = new THREE.Mesh(textGeo, material);
   textMesh.position.x = centerOffset;
   textMesh.position.y = hover - 100;
   textMesh.position.z = 0;
   textMesh.rotation.x = 0;
   textMesh.rotation.y = Math.PI * 2;
-  group.add( textMesh );
+  group.add(textMesh);
 }
 function refreshText() {
-  group.remove( textMesh );
-  if ( !text ) return;
+  group.remove(textMesh);
+  if (!text) return;
   createText();
 }
 // animate
@@ -206,10 +201,13 @@ function render() {
   camera.lookAt(scene.position);
 
   renderer.clear();
-  renderer.render( scene, camera );
+  renderer.render(scene, camera);
 }
 function animate() {
-  requestAnimationFrame( animate );
+  requestAnimationFrame(animate);
   refreshText();
   render();
 }
+//# sourceMappingURL=text.js.map
+//# sourceMappingURL=text.js.map
+//# sourceMappingURL=text.js.map
