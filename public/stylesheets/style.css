@@ -94,14 +94,12 @@ footer a {
   margin: 1rem 0;
 }
 
-.card1{
-  z-index: -1;
-
-}
 .card1 img{
   max-width: 85%;
 }
-
+.cards.card2{
+  padding: 0 20px;
+}
 .card2 img{
   margin-top: 40px;
 
@@ -148,6 +146,11 @@ footer a {
  * 媒体检测
  * @type {[type]}
  */
+ @media screen and (min-width: 1500px){
+   .cards.card2{
+     padding: 0 5%;
+   }
+ }
 @media screen and (max-width: 1300px){
   .center>.box:first-child{
     margin-top: 40px;

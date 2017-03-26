@@ -11,17 +11,10 @@ $(document).ready(function () {
     afterLoad: function(anchorLink, index) {
       switch (index) {
         case 1:
-          setTimeout(function(){
-            for(var i = 0; i < times2.length ; i++ ){
-              clearTimeout(times2[i]);
-            }
-            secondLeave();
-          },300)
-          break;
-        case 2:
           $('.brand').addClass('animated about-title');
           times2.push(setTimeout(function(){
             $('.card1').addClass('animated bigger');
+            $('.card1').css('z-index', '100');
             times2.push(setTimeout(function(){
               $('.right-box').each(function(index, el) {
                 if(index===0){
@@ -37,7 +30,7 @@ $(document).ready(function () {
             },1000));
           },600));
           break;
-        case 3:
+        case 2:
           setTimeout(function(){
             for(var i = 0; i < times2.length ; i++ ){
               clearTimeout(times2[i]);
@@ -90,6 +83,8 @@ $('.right-box').each(function(index, el) {
         }
         $oldbox.removeClass('animated right-box-hover');
         $this.addClass('animated right-box-hover');
+        $cards.eq(index).css('z-index', '100');
+        $oldcard.css('z-index', '-1');
         $oldbox.removeClass('right-box-hover');
         $('.right-box').prop('disabled', true);
         $cards.eq(index).addClass('animated show-card');
