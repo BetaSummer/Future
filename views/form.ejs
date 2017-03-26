@@ -2,22 +2,22 @@
   <div class="formComponent">
     <form class="col s12" id="entryForm" enctype="multipart/form-data" method="post" action='/post'>
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
           <i class="material-icons prefix">account_circle</i>
           <input id="name" name="name" type="text" class="validate" pattern="[\u4e00-\u9fa5]{2,4}$" required>
           <label for="name">姓名</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">mail_outline</i>
+          <input id="email" type="email" name="email" class="validate" required>
+          <label for="email">Email</label>
         </div>
         <div class="input-field col s6">
           <i class="material-icons prefix">format_list_numbered</i>
           <input id="stuNum" type="text" name="stuNum" class="validate" pattern="\d{8}$" required>
           <label for="stuNum">学号</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <i class="material-icons prefix">mail_outline</i>
-          <input id="email" type="email" name="email" class="validate" required>
-          <label for="email">Email</label>
         </div>
       </div>
       <div class="row">
