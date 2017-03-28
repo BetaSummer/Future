@@ -126,6 +126,8 @@ function timeChange() {
   console.log('time chaged');
   console.log(text);
   text = `${t[0]}:${t[1]}:${t[2]}`;
+  if (text === '0:0:0')
+    location.reload();
 }
 
 // event handle functions
