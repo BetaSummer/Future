@@ -95,7 +95,7 @@ function init() {
 
 // get time
 function getTime() {
-  const target = [3, 28, 18, 0];
+  const target = [3, 29, 18, 0];
   const now =  new Date();
 
   const day = target[1] - now.toString().split(' ')[2];
