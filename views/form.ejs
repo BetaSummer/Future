@@ -2,10 +2,15 @@
   <div class="formComponent">
     <form class="col s12" id="entryForm" enctype="multipart/form-data" method="post" action='/post'>
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
           <input id="name" name="name" type="text" class="validate" pattern="[\u4e00-\u9fa5]{2,4}$" required>
           <label for="name">姓名</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">phone</i>
+          <input id="phone" name="phone" type="text" class="validate" pattern="^1\d{10}$|^[1-9]\d{5}$" required>
+          <label for="phone">手机</label>
         </div>
       </div>
       <div class="row">

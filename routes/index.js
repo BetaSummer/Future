@@ -29,7 +29,7 @@ var transporter = nodemailer.createTransport({
 
 router.get('/', function (req, res) {
   var dateObj = new Date();
-  if(dateObj.getDate() === 28 && dateObj.getHours() === 18) {
+  if(dateObj.getDate() >= 29 && dateObj.getMonth() >= 2 && dateObj.getHours() >= 18) {
     res.render('index');
   } else {
     res.render('deadline');
@@ -38,7 +38,7 @@ router.get('/', function (req, res) {
 
 router.post('/post', upload.fields([{ name: 'file', maxCount: 1 }]) ,function (req, res) {
   var body = req.body;
-  var html = `<p>${body.name}  ${body.stuNum}</p><p>email: ${body.email}</p><p>个人简介： ${body.introduction}</p><p>有趣的事： ${body.experience}</p>`; 
+  var html = `<p>${body.name}  ${body.stuNum}</p><p>手机: ${body.phone}</p><p>email: ${body.email}</p><p>个人简介： ${body.introduction}</p><p>有趣的事： ${body.experience}</p>`; 
   var mailOptions = {
     from: '549300687@qq.com',
     to: 'zhoushidong@betahouse.us',
@@ -51,7 +51,7 @@ router.post('/post', upload.fields([{ name: 'file', maxCount: 1 }]) ,function (r
       res.status(500).send({message:"提交失败，请重试😔"});
     } else {
       console.log('Message sent: ' + info.response);
-      res.status(200).send({message:"提交成功，我们会尽快回复，届时请留意邮件😜"});
+      res.status(200).send({message:"提交成功，我们会尽快回复，届时请留意短信和邮件😜"});
     }
   });
 });
