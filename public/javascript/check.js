@@ -2,11 +2,18 @@ function check(f) {
 	var Rname = /^[\u4e00-\u9fa5]{2,4}$/;
 	var Rnumber = /^\d{8}$/;
 	var Remail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	var Rphone=/^1\d{10}$|^[1-9]\d{5}$/;
 	//错误信息
 	if (!Rname.test(f.name.value)) {
 		console.log(f.name.value);
 		Materialize.toast("姓名格式有误", 2000);
 		f.name.focus();
+		return false;
+	}
+	if (!Rphone.test(f.phone.value)) {
+		console.log(f.phone.value);
+		Materialize.toast("手机格式有误", 2000);
+		f.phone.focus();
 		return false;
 	}
 	if (!Rnumber.test(f.stuNum.value)) {

@@ -156,12 +156,15 @@ $(document).ready(function () {
 
 });
 
+var isSubmitted =false;
 var frm = $('#entryForm');
 frm.submit(function (ev) {
-  if (!check(this)) {
-    ev.preventDefault();
+  ev.preventDefault();
+  if(isSubmitted) {
+    Materialize.toast("请不要重复提交", 3000);
+  } else if (!check(this)) {
+    return;
   } else {
-    ev.preventDefault();
     var formData = new FormData($(this)[0]);
     $.ajax({
       type: frm.attr('method'),
@@ -169,6 +172,7 @@ frm.submit(function (ev) {
       data: formData,
       success: function (data) {
         $('.progress').hide();
+        isSubmitted = true;
         Materialize.toast(data.message, 4000);
       },
       error: function (data) {
