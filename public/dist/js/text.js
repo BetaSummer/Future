@@ -14,15 +14,15 @@ var group = void 0,
     textGeo = void 0,
     material = void 0;
 
-var text = "66:66:66";
-var height = 10;
-var size = 80;
-var hover = 30;
-var curveSegments = 4;
-var bevelThickness = 2;
-var bevelSize = 1.5;
-var bevelSegments = 3;
-var bevelEnabled = true;
+var text = "66:66:66",
+    height = 10,
+    size = 80,
+    hover = 30,
+    curveSegments = 4,
+    bevelThickness = 2,
+    bevelSize = 1.5,
+    bevelSegments = 3,
+    bevelEnabled = true;
 var fontMap = {
   "helvetiker": 0,
   "optimer": 1,
@@ -115,22 +115,21 @@ function timeChange() {
   var t = text.split(':');
   if (t[2] !== '0') {
     t[2] -= 1;
-  } else if (t[1] !== '0') {
-    t[2] = '59';
+  } else {
     if (t[1] !== '0') {
+      t[2] = '59';
       t[1] -= 1;
     } else {
-      t[1] = '59';
       if (t[0] !== '0') {
-        t[0] -= 1;
+        t[1] = '59';
+      } else {
+        window.loaction.reload(true);
+        return;
       }
     }
   }
-  console.log('time chaged');
   console.log(text);
   text = `${t[0]}:${t[1]}:${t[2]}`;
-  if (text === '0:0:0')
-    location.reload(true);
 }
 
 // event handle functions

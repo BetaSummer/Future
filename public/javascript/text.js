@@ -109,25 +109,24 @@ function getTime() {
   return `${hour}:${minute}:${second}`;
 }
 function timeChange() {
-  const t = text.split(':');
+  var t = text.split(':');
   if (t[2] !== '0') {
     t[2] -= 1;
-  } else if (t[1] !== '0') {
-    t[2] = '59';
+  } else {
     if (t[1] !== '0') {
+      t[2] = '59';
       t[1] -= 1;
     } else {
-      t[1] = '59';
       if (t[0] !== '0') {
-        t[0] -= 1;
+        t[1] = '59';
+      } else {
+        window.loaction.reload(true);
+        return;
       }
     }
   }
-  console.log('time chaged');
   console.log(text);
   text = `${t[0]}:${t[1]}:${t[2]}`;
-  if (text === '0:0:0')
-    location.reload(true);
 }
 
 // event handle functions
