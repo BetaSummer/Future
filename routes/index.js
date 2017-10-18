@@ -39,7 +39,7 @@ router.post(
     var html = `<p>${body.name}  ${body.stuNum}</p><p>手机: ${body.phone}</p><p>email: ${body.email}</p><p>个人简介： ${body.introduction}</p><p>有趣的事： ${body.experience}</p>`;
     var mailOptions = {
       from: "549300687@qq.com",
-      to: "zhoushidong@betahouse.us",
+      to: "zym@betahouse.us",
       subject: `${body.name}  ${body.stuNum}`,
       html: html
     };
