@@ -21,8 +21,8 @@ var transporter = nodemailer.createTransport({
   secureConnection: true, // 使用 SSL
   port: 465, // SMTP 端口
   auth: {
-    user: "549300687@qq.com",
-    pass: "ztlzdrivyevxbecc"
+    user: "498291117@qq.com",
+    pass: "jspavjrexbdobjjd"
   }
 });
 
@@ -38,7 +38,7 @@ router.post(
     var body = req.body;
     var html = `<p>${body.name}  ${body.stuNum}</p><p>手机: ${body.phone}</p><p>email: ${body.email}</p><p>个人简介： ${body.introduction}</p><p>有趣的事： ${body.experience}</p>`;
     var mailOptions = {
-      from: "549300687@qq.com",
+      from: "498291117@qq.com",
       to: "zym@betahouse.us",
       subject: `${body.name}  ${body.stuNum}`,
       html: html
